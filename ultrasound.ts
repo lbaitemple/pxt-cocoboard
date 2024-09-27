@@ -1,8 +1,8 @@
 // Add your code here
 
 namespace coco {
-    let echoPin: DigitalInOutPin = pins.D2;
-    let trigPin: DigitalInOutPin = pins.D7;
+    let echoPin: DigitalInOutPin = pins.D0;
+    let trigPin: DigitalInOutPin = pins.D1;
 
     function calculateDistance(): number {
         trigPin.digitalWrite(false);
