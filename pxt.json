@@ -3,12 +3,15 @@
     "version": "0.0.0",
     "description": "",
     "dependencies": {
-        "adafruit-metro-m0-express": "*"
+        "sparkfun-samd21-dev-breakout": "*"
     },
     "files": [
         "README.md",
         "main.blocks",
-        "main.ts"
+        "coco.ts",
+        "main.ts",
+        "oled.ts",
+        "ultrasound.ts"
     ],
     "testFiles": [
         "test.ts"
@@ -21,5 +24,5 @@
     "supportedTargets": [
         "maker"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
