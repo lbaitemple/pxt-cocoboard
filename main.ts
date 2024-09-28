@@ -1,3 +1,1 @@
-forever(function () {
-	
-})
+

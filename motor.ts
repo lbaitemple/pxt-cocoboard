@@ -21,101 +21,72 @@ namespace coco {
         Stop = 4
     }
 
-    /**
-     * Custom blocks
-     */
-    //% weight=100 color=#AAAAAA icon=""
-    namespace Valley_L298N {
-        /**
-         * @param direction Forward, Backward, Left and Right.
-         * @param power how much power to use on drive motors, from 0 to 100
-         * @param duration (ms) of this action.  5000 = indefinate
-         */
-        //% power.shadow="speedPicker"
-        //% duration.shadow="timePicker"
-        //% block
-        export function Move(
-            requestedMovement: MovementType = MovementType.MoveForward,
-            power: number,
-            duration: number): void {
-            //power is inverted
-            let realPower = 1023 - (1023 / 100 * power);
-            let noPower = 1023;
+    let leftForward: DigitalInOutPin = pins.D8;
+    let leftBackward: DigitalInOutPin = pins.D7;
+    let rightForward: DigitalInOutPin = pins.D4;
+    let rightBackward: DigitalInOutPin = pins.D2;
+    let leftPowerPin: AnalogInOutPin = pins.D9;
+    let rightPowerPin: AnalogInOutPin = pins.D5;
 
-            let leftForward = pins.D8;
-            let leftBackward = pins.D7;
-            let rightForward = pins.D4;
-            let rightBackward = pins.D2;
-            let leftPowerPin = pins.D9;
-            let rightPowerPin = pins.D5;
+    //% block="Move Forward at speed $power "
+    //% power.defl= 512
+    //% subcategory=Motor
+    export function moveForward(power: number): void {
+        let realPower = 1023 - (1023 / 100 * power);
+        leftBackward.digitalWrite(true);
+        leftBackward.digitalWrite(false);
+        rightForward.digitalWrite(true);
+        rightBackward.digitalWrite(false);
+        leftPowerPin.analogWrite(realPower);
+        rightPowerPin.analogWrite(realPower);
 
-            // Add code here
-            switch (requestedMovement) {
-                case MovementType.MoveForward:
-                    {
-                        leftBackward.digitalWrite(true);
-                        leftBackward.digitalWrite(false);
-                        rightForward.digitalWrite(true);
-                        rightBackward.digitalWrite(false);
-                        leftPowerPin.analogWrite(realPower);
-                        rightPowerPin.analogWrite(realPower);
-                        break;
-                    }
-                case MovementType.MoveBackward:
-                    {
-                        leftBackward.digitalWrite(false);
-                        leftBackward.digitalWrite(true);
-                        rightForward.digitalWrite(false);
-                        rightBackward.digitalWrite(true);
-                        leftPowerPin.analogWrite(realPower);
-                        rightPowerPin.analogWrite(realPower);
-                        break;
-                    }
-                case MovementType.TurnLeft:
-                    {
-                        leftBackward.digitalWrite(true);
-                        leftBackward.digitalWrite(false);
-                        rightForward.digitalWrite(false);
-                        rightBackward.digitalWrite(false);
-                        leftPowerPin.analogWrite(realPower);
-
-                        break;
-                    }
-                case MovementType.TurnRight:
-                    {
-                        leftBackward.digitalWrite(false);
-                        leftBackward.digitalWrite(false);
-                        rightForward.digitalWrite(false);
-                        rightBackward.digitalWrite(true);
-                        rightPowerPin.analogWrite(realPower);
-                        break;
-                    }
-                case MovementType.Stop:
-                    {
-                        leftBackward.digitalWrite(false);
-                        leftBackward.digitalWrite(false);
-                        rightForward.digitalWrite(false);
-                        rightBackward.digitalWrite(false);
-                        leftPowerPin.analogWrite(noPower);
-                        rightPowerPin.analogWrite(noPower);
-
-                        break;
-                    }
-            }
-
-            if (duration != 5000) {
-                pause(duration);
-                leftBackward.digitalWrite(false);
-                leftBackward.digitalWrite(false);
-                rightForward.digitalWrite(false);
-                rightBackward.digitalWrite(false);
-                leftPowerPin.analogWrite(noPower);
-                rightPowerPin.analogWrite(noPower);
-
-            }
-        }
     }
 
+    //% block="Move Backward at speed $power "
+    //% power.defl= 512
+    //% subcategory=Motor
+    export function moveBackward(power: number): void {
+        let realPower = 1023 - (1023 / 100 * power);
+        leftBackward.digitalWrite(false);
+        leftBackward.digitalWrite(true);
+        rightForward.digitalWrite(false);
+        rightBackward.digitalWrite(true);
+        leftPowerPin.analogWrite(realPower);
+        rightPowerPin.analogWrite(realPower);
 
+    }
+
+    //% block="Move Left at speed $power "
+    //% power.defl= 512
+    //% subcategory=Motor
+    export function moveLeft(power: number): void {
+        let realPower = 1023 - (1023 / 100 * power);
+        leftBackward.digitalWrite(true);
+        leftBackward.digitalWrite(false);
+        rightForward.digitalWrite(false);
+        rightBackward.digitalWrite(false);
+        leftPowerPin.analogWrite(realPower);
+    }
+
+    //% block="Move Right at speed $power "
+    //% power.defl= 512
+    //% subcategory=Motor
+    export function moveRight(power: number): void {
+        let realPower = 1023 - (1023 / 100 * power);
+        leftBackward.digitalWrite(false);
+        leftBackward.digitalWrite(false);
+        rightForward.digitalWrite(false);
+        rightBackward.digitalWrite(true);
+        rightPowerPin.analogWrite(realPower);
+    }
+
+    //% block="Stop "
+    //% subcategory=Motor
+    export function Stop(): void {
+        leftBackward.digitalWrite(false);
+        leftBackward.digitalWrite(false);
+        rightForward.digitalWrite(false);
+        rightBackward.digitalWrite(false);
+    }
 
 }

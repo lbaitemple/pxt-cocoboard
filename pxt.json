@@ -8,11 +8,11 @@
     "files": [
         "README.md",
         "main.blocks",
-        "coco.ts",
         "main.ts",
         "oled.ts",
         "ultrasound.ts",
-        "motor.ts"
+        "motor.ts",
+        "servo.ts"
     ],
     "testFiles": [
         "test.ts"
@@ -25,5 +25,5 @@
     "supportedTargets": [
         "maker"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "blocksprj"
 }
