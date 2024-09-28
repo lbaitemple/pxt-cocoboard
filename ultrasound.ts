@@ -17,8 +17,8 @@ namespace coco {
     }
 
     //% block="Ultrasound at trig $trig and echo $echo "
-    //% trig.defl=pins.D7
-    //% echo.defl=pins.D6
+    //% trig.defl=pins.D1
+    //% echo.defl=pins.D0
     //% subcategory=Ultrasound
     export function HCSR04(trig: DigitalInOutPin, echo: DigitalInOutPin): number {
         echoPin = echo;
