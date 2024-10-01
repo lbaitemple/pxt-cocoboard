@@ -35,7 +35,7 @@ namespace coco {
     //% subcategory=Motor
     export function moveForward(power: number): void {
         let realPower =  (1023 / 100 * power);
-        leftBackward.digitalWrite(true);
+        leftForward.digitalWrite(true);
         leftBackward.digitalWrite(false);
         rightForward.digitalWrite(true);
         rightBackward.digitalWrite(false);
@@ -51,7 +51,7 @@ namespace coco {
     //% subcategory=Motor
     export function moveBackward(power: number): void {
         let realPower = (1023 / 100 * power);
-        leftBackward.digitalWrite(false);
+        leftForward.digitalWrite(false);
         leftBackward.digitalWrite(true);
         rightForward.digitalWrite(false);
         rightBackward.digitalWrite(true);
@@ -67,7 +67,7 @@ namespace coco {
     //% subcategory=Motor
     export function moveLeft(power: number): void {
         let realPower = (1023 / 100 * power);
-        leftBackward.digitalWrite(true);
+        leftForward.digitalWrite(true);
         leftBackward.digitalWrite(false);
         rightForward.digitalWrite(false);
         rightBackward.digitalWrite(false);
@@ -81,7 +81,7 @@ namespace coco {
     //% subcategory=Motor
     export function moveRight(power: number): void {
         let realPower = (1023 / 100 * power);
-        leftBackward.digitalWrite(false);
+        leftForward.digitalWrite(false);
         leftBackward.digitalWrite(false);
         rightForward.digitalWrite(false);
         rightBackward.digitalWrite(true);
@@ -91,7 +91,7 @@ namespace coco {
     //% block="Stop "
     //% subcategory=Motor
     export function Stop(): void {
-        leftBackward.digitalWrite(false);
+        leftForward.digitalWrite(false);
         leftBackward.digitalWrite(false);
         rightForward.digitalWrite(false);
         rightBackward.digitalWrite(false);
