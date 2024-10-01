@@ -30,6 +30,8 @@ namespace coco {
 
     //% block="Move Forward at speed $power "
     //% power.defl= 512
+    //% power.min=0
+    //% power.max=100
     //% subcategory=Motor
     export function moveForward(power: number): void {
         let realPower = 1023 - (1023 / 100 * power);
@@ -44,6 +46,8 @@ namespace coco {
 
     //% block="Move Backward at speed $power "
     //% power.defl= 512
+    //% power.min=0
+    //% power.max=100
     //% subcategory=Motor
     export function moveBackward(power: number): void {
         let realPower = 1023 - (1023 / 100 * power);
@@ -58,6 +62,8 @@ namespace coco {
 
     //% block="Move Left at speed $power "
     //% power.defl= 512
+    //% power.min=0
+    //% power.max=100
     //% subcategory=Motor
     export function moveLeft(power: number): void {
         let realPower = 1023 - (1023 / 100 * power);
@@ -70,6 +76,8 @@ namespace coco {
 
     //% block="Move Right at speed $power "
     //% power.defl= 512
+    //% power.min=0
+    //% power.max=100
     //% subcategory=Motor
     export function moveRight(power: number): void {
         let realPower = 1023 - (1023 / 100 * power);
