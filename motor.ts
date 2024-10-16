@@ -82,10 +82,10 @@ namespace coco {
     export function moveRight(power: number): void {
         let realPower = (1023 / 100 * power);
         leftForward.digitalWrite(false);
-        leftBackward.digitalWrite(true);
-        rightForward.digitalWrite(false);
+        leftBackward.digitalWrite(false);
+        rightForward.digitalWrite(true);
         rightBackward.digitalWrite(false);
-        leftPowerPin.analogWrite(realPower);
+        rightPowerPin.analogWrite(realPower);
     }
 
     //% block="Stop "
