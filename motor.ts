@@ -81,8 +81,8 @@ namespace coco {
     //% subcategory=Motor
     export function moveRight(power: number): void {
         let realPower = (1023 / 100 * power);
-        leftForward.digitalWrite(true);
-        leftBackward.digitalWrite(false);
+        leftForward.digitalWrite(false);
+        leftBackward.digitalWrite(true);
         rightForward.digitalWrite(false);
         rightBackward.digitalWrite(false);
         leftPowerPin.analogWrite(realPower);
