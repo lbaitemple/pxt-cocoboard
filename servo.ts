@@ -3,7 +3,7 @@
 namespace coco {
     let severoPin: AnalogInOutPin = pins.D3;
 
-    //% block="Set severo $severoPin at $pos "
+    //% block="Set severo $severoPin at $degree "
     //% severoPin.defl=pins.D3
     //% degree.min=0
     //% degree.max=180
