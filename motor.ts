@@ -60,14 +60,14 @@ namespace coco {
 
     }
 
-    //% block="Move Left at speed $power with motor reversed $rev"
-    //% power.defl= 512
-    //% power.min=0
+    //% block="Move Left at speed $power"
+    //% power.defl= 50
+    //% power.min=-100
     //% power.max=100
     //% rev.defl = false
     //% subcategory=Motor
     export function moveLeft(power: number, rev: boolean): void {
-        if (rev) {
+        if (power < 0) {
             rightForward.digitalWrite(true);
             rightBackward.digitalWrite(false);
         }
@@ -75,22 +75,21 @@ namespace coco {
             rightForward.digitalWrite(false);
             rightBackward.digitalWrite(true);
         }
-        let realPower = (1023 / 100 * power);
+        let realPower = (1023 / 100 ) * power;
         leftForward.digitalWrite(false);
         leftBackward.digitalWrite(false);
 
         rightPowerPin.analogWrite(realPower);
     }
 
-    //% block="Move Right at speed $power with motor reversed $rev"
-    //% power.defl= 512
-    //% power.min=0
+    //% block="Move Right at speed $power"
+    //% power.defl= 50
+    //% power.min=-100
     //% power.max=100
-    //% rev.defl = false
     //% subcategory=Motor
-    export function moveRight(power: number, rev: boolean): void {
+    export function moveRight(power: number): void {
         let realPower = (1023 / 100 * power);
-        if (rev){
+        if (power <0){
             leftForward.digitalWrite(true);
             leftBackward.digitalWrite(false);
         }
