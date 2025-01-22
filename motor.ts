@@ -81,11 +81,11 @@ namespace coco {
     //% subcategory=Motor
     export function moveRight(power: number): void {
         let realPower = (1023 / 100 * power);
-        leftForward.digitalWrite(false);
+        leftForward.digitalWrite(true);
         leftBackward.digitalWrite(false);
-        rightForward.digitalWrite(true);
+        rightForward.digitalWrite(false);
         rightBackward.digitalWrite(false);
-        rightPowerPin.analogWrite(realPower);
+        leftPowerPin.analogWrite(realPower);
     }
 
     //% block="Stop "
