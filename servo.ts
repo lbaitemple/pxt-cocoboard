@@ -6,7 +6,7 @@ namespace coco {
     //% block="Set severo $severoPin at $degree "
     //% severoPin.defl=pins.D3
     //% degree.min=0
-    //% degree.max=180
+    //% degree.max=270
     //% degree.defl=90
     //% subcategory=Servo
 
