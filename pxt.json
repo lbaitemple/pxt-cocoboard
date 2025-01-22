@@ -3,7 +3,8 @@
     "version": "0.0.0",
     "description": "",
     "dependencies": {
-        "sparkfun-samd21-dev-breakout": "*"
+        "sparkfun-samd21-dev-breakout": "*",
+        "servo": "*"
     },
     "files": [
         "README.md",

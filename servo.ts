@@ -5,11 +5,21 @@ namespace coco {
 
     //% block="Set severo $severoPin at $pos "
     //% severoPin.defl=pins.D3
-    //% pos.min=-99
-    //% pos.max=99
+    //% degree.min=0
+    //% degree.max=180
+    //% degree.defl=90
     //% subcategory=Servo
 
-    export function setPos(severoPin: AnalogInOutPin, pos: number): void {
-        severoPin.analogWrite(pos);
+    export function setPos(severoPin: AnalogInOutPin, degree: number): void {
+        //severoPin.analogWrite(pos);
+        let pulseWidth = 1000 + (degree * 1000) / 180 // Scale 0-180 degrees to 1000-2000 µs
+
+        // Generate PWM signal manually
+        for (let i = 0; i < 50; i++) { // Repeat to create a 50 Hz signal (20 ms period)
+            severoPin.digitalWrite(true); // Set signal high
+            control.waitMicros(pulseWidth) // Wait for calculated pulse width
+            severoPin.digitalWrite(false); // Set signal low
+            control.waitMicros(20000 - pulseWidth) // Wait for the rest of the 20 ms period
+        }
     }
 }
