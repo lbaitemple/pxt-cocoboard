@@ -70,6 +70,7 @@ namespace coco {
         if (power < 0) {
             rightForward.digitalWrite(true);
             rightBackward.digitalWrite(false);
+            power = -power;
         }
         else {
             rightForward.digitalWrite(false);
@@ -88,15 +89,18 @@ namespace coco {
     //% power.max=100
     //% subcategory=Motor
     export function moveRight(power: number): void {
-        let realPower = (1023 / 100 * power);
+        
         if (power <0){
             leftForward.digitalWrite(true);
             leftBackward.digitalWrite(false);
+            
         }
         else{
             leftForward.digitalWrite(false);
             leftBackward.digitalWrite(true);
         }
+        
+        let realPower = (1023 / 100 * Math.abs(power));
         rightForward.digitalWrite(false);
         rightBackward.digitalWrite(false);
         leftPowerPin.analogWrite(realPower);
