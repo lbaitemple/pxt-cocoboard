@@ -17,7 +17,7 @@ namespace coco {
         // Generate PWM signal manually
         for (let i = 0; i < 5; i++) { // Repeat to create a 50 Hz signal (20 ms period)
             severoPin.digitalWrite(true); // Set signal high
-            control.waitMicros(pulseWidth) // Wait for calculated pulse width
+            control.waitMicros(1.5*pulseWidth) // Wait for calculated pulse width
             severoPin.digitalWrite(false); // Set signal low
             control.waitMicros(20000 - pulseWidth) // Wait for the rest of the 20 ms period
         }
