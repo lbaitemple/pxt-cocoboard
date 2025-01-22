@@ -74,10 +74,11 @@ namespace coco {
         leftPowerPin.analogWrite(realPower);
     }
 
-    //% block="Move Right at speed $power  $rev"
+    //% block="Move Right at speed $power with motor reversed $rev"
     //% power.defl= 512
     //% power.min=0
     //% power.max=100
+    //% rev.defl = false
     //% subcategory=Motor
     export function moveRight(power: number, rev: boolean): void {
         let realPower = (1023 / 100 * power);
