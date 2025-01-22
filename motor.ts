@@ -60,12 +60,12 @@ namespace coco {
 
     }
 
-    //% block="Quick Left at speed $power"
+    //% block="Quick Turn at speed $power"
     //% power.defl= 50
     //% power.min=-100
     //% power.max=100
     //% subcategory=Motor
-    export function quickLeft(power: number): void {
+    export function quickTurn(power: number): void {
         if (power < 0) {
             rightForward.digitalWrite(true);
             rightBackward.digitalWrite(false);
@@ -79,7 +79,6 @@ namespace coco {
             leftBackward.digitalWrite(false);
         }
         let realPower = (1023 / 100) * Math.abs(power);
-
 
         rightPowerPin.analogWrite(realPower);
         leftPowerPin.analogWrite(realPower);
