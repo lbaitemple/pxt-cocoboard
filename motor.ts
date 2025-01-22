@@ -70,13 +70,12 @@ namespace coco {
         if (power < 0) {
             rightForward.digitalWrite(true);
             rightBackward.digitalWrite(false);
-            power = -power;
         }
         else {
             rightForward.digitalWrite(false);
             rightBackward.digitalWrite(true);
         }
-        let realPower = (1023 / 100 ) * power;
+        let realPower = (1023 / 100) * Math.abs(power);
         leftForward.digitalWrite(false);
         leftBackward.digitalWrite(false);
 
