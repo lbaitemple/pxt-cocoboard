@@ -64,9 +64,8 @@ namespace coco {
     //% power.defl= 50
     //% power.min=-100
     //% power.max=100
-    //% rev.defl = false
     //% subcategory=Motor
-    export function moveLeft(power: number, rev: boolean): void {
+    export function moveLeft(power: number): void {
         if (power < 0) {
             rightForward.digitalWrite(true);
             rightBackward.digitalWrite(false);
