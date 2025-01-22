@@ -12,7 +12,7 @@ namespace coco {
 
     export function setPos(severoPin: AnalogInOutPin, degree: number): void {
         //severoPin.analogWrite(pos);
-        let pulseWidth = (1000 + (degree * 1000) / 180) *3 /2  // Scale 0-180 degrees to 1000-2000 µs
+        let pulseWidth = 1000 + (degree * 1000) / 180  // Scale 0-180 degrees to 1000-2000 µs
 
         // Generate PWM signal manually
         for (let i = 0; i < 5; i++) { // Repeat to create a 50 Hz signal (20 ms period)
