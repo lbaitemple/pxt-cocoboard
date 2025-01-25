@@ -105,7 +105,7 @@ namespace coco {
         rightPowerPin.analogWrite(realPower);
     }
 
-    //% block="Move Left Motor at Speed $power"
+    //% block="Move Right Motor at Speed $power"
     //% power.defl= 50
     //% power.min=-100
     //% power.max=100
